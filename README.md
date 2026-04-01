@@ -4,6 +4,8 @@
   超强精简，使用luci-app-dae、samba4、openlist2、tailscale，内存占用仅65%。
 
   固件集成增强版geoip.dat、geosite.dat,开箱即用，正确配置Dae不会报错
+
+  追求更多功能➡️https://github.com/GHNERCH/DAEWRT-AX1800PRO
   
   确保最大性能发挥，开启内核eBPF，Dae吃鹅优选，建议硬改1GB内存的使用。
   
