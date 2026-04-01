@@ -1,8 +1,8 @@
-name: 自动更新 v2ray 规则文件
+name: 自动更新 dae 规则文件
 on:
-  workflow_dispatch:   # 允许手动运行
+  workflow_dispatch:
   schedule:
-    - cron: '0 19 * * *'  # 每天 UTC 19:00 = 北京时间 03:00
+    - cron: '0 19 * * *'  # 北京时间 03:00
 
 jobs:
   update-dat:
@@ -10,21 +10,25 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Checkout
+      - name: 拉取仓库代码
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: 创建目录并下载 geoip/geosite
+      - name: 创建目录并下载文件
         run: |
-          mkdir -p usr/share/v2ray
-          wget -O usr/share/v2ray/geoip.dat https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat
-          wget -O usr/share/v2ray/geosite.dat https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat
+          # 保存目录：files/usr/share/dae
+          mkdir -p files/usr/share/dae
+          
+          wget -O files/usr/share/dae/geoip.dat https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat
+          wget -O files/usr/share/dae/geosite.dat https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat
+          
+          ls -lh files/usr/share/dae/
 
-      - name: 提交并推送
+      - name: 提交更新到仓库
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add usr/share/v2ray/*
-          git commit -m "Auto update v2ray geoip & geosite [$(date +'%Y-%m-%d')]" || exit 0
+          git add files/usr/share/dae/*
+          git commit -m "Auto update dae geoip & geosite [$(date +'%Y-%m-%d')]" || exit 0
           git push
