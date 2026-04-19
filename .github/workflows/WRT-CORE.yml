@@ -212,21 +212,12 @@ jobs:
          mkdir -p files/usr/bin
       - name: 下载并安装 dae 到 openwrt/usr/bin
         run: |
-        # 1. 下载压缩包
-        wget -O dae.zip https://github.com/daeuniverse/dae/releases/download/v1.1.0rc1/dae-linux-arm64.zip
-    
-        # 2. 只解压出 dae-linux-arm64 这一个文件
-        unzip -j dae.zip dae-linux-arm64
-    
-        # 3. 创建目标目录（如果不存在）
-        mkdir -p openwrt/usr/bin
-    
-        # 4. 移动并重命名为 dae，并赋予执行权限
-        mv dae-linux-arm64 openwrt/usr/bin/dae
-        chmod +x openwrt/usr/bin/dae
-    
-        # 5. 清理垃圾文件
-        rm -f dae.zip
+          wget -O dae.zip https://github.com/daeuniverse/dae/releases/download/v1.1.0rc1/dae-linux-arm64.zip
+          unzip -j dae.zip dae-linux-arm64
+          mkdir -p openwrt/usr/bin
+          mv dae-linux-arm64 openwrt/usr/bin/dae
+          chmod +x openwrt/usr/bin/dae
+          rm -f dae.zip
 
 
 #############################测试代码####    
