@@ -202,18 +202,14 @@ jobs:
           
       - name: Update Dae core
         run: |
-         cd ./wrt
-         mkdir -p files/usr/bin
-      - name: 下载并安装 dae 到 openwrt/usr/bin
-        run: |
+          cd ./wrt/
           wget -O dae.zip https://github.com/daeuniverse/dae/releases/download/v1.1.0rc1/dae-linux-arm64.zip
           unzip -j dae.zip dae-linux-arm64
-          mkdir -p openwrt/usr/bin
-          mv dae-linux-arm64 openwrt/usr/bin/dae
-          chmod +x openwrt/usr/bin/dae
+          mkdir -p files/usr/bin
+          mv dae-linux-arm64 files/usr/bin/dae
+          chmod +x files/usr/bin/dae
           rm -f dae.zip
-
-
+          
 #############################测试代码####    
 
       - name: Compile Firmware
