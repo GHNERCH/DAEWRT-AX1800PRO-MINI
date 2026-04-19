@@ -140,12 +140,6 @@ jobs:
          cd files/usr/share
          ln -s dae daed
          ls -l
-      - name: Update Dae core
-        run: |
-         cd ./wrt
-         mkdir -p files/usr/share/dae
-
-
 #############################测试代码####
 
       - name: Check Scripts
