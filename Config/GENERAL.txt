@@ -5,7 +5,7 @@ CONFIG_PACKAGE_luci-app-tailscale=y
 CONFIG_PACKAGE_luci-app-ramfree=y
 CONFIG_PACKAGE_luci-app-filemanager=y
 CONFIG_PACKAGE_luci-app-ttyd=y
-CONFIG_PACKAGE_coreutils-base64
+CONFIG_PACKAGE_coreutils-base64=y
 #USBnet-iPhoneSupport
 CONFIG_PACKAGE_usbmuxd=y
 
