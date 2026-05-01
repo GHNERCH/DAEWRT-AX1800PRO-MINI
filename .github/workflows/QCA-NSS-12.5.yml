@@ -1,5 +1,5 @@
 #CI项目
-name: QCA-LiBwrt
+name: QCA-NSS-12.5
 
 #CI计划
 on:
