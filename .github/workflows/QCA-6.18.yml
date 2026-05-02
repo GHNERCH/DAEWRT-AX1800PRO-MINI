@@ -70,5 +70,5 @@ jobs:
       #仅输出配置文件
       WRT_TEST: ${{inputs.TEST}}
 
-      #CI_NAME: ${{github.workflow}}
+      CI_NAME: ${{github.workflow}}
 

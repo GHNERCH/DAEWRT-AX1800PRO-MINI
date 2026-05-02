@@ -43,6 +43,12 @@ on:
       WRT_TEST:
         required: false
         type: string
+      CI_NAME:
+        required: false
+        type: string
+      WRT_ARCH:
+        required: false
+        type: string
 
 env:
   GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
@@ -58,6 +64,9 @@ env:
   WRT_SOURCE: ${{inputs.WRT_SOURCE}}
   WRT_PACKAGE: ${{inputs.WRT_PACKAGE}}
   WRT_TEST: ${{inputs.WRT_TEST}}
+  WRT_DIR: 'wrt'
+  CI_NAME: ${{inputs.CI_NAME}}
+  WRT_ARCH: ${{inputs.WRT_ARCH}}
 
 jobs:
   core:
@@ -173,9 +182,10 @@ jobs:
 
           $GITHUB_WORKSPACE/Scripts/Packages.sh
           $GITHUB_WORKSPACE/Scripts/Handles.sh
-
+#############################测试代码####   
       - name: Custom Settings
         run: |
+          . $GITHUB_WORKSPACE/Scripts/function.sh
           cd ./wrt/
 
           if [[ "${WRT_CONFIG,,}" == *"test"* ]]; then
