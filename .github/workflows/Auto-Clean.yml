@@ -28,9 +28,9 @@ jobs:
         uses: ophub/delete-releases-workflows@main
         with:
           gh_token: ${{secrets.GITHUB_TOKEN}}
-          delete_releases: true
+          delete_releases: false
           releases_keep_latest: ${{inputs.NUMBER || '0'}}
-          delete_tags: true
+          delete_tags: false
           delete_workflows: true
           workflows_keep_day: 0
 
