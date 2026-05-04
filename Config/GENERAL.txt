@@ -1,3 +1,5 @@
+#防堆叠
+
 CONFIG_PACKAGE_luci-app-dae=y
 CONFIG_PACKAGE_luci-app-samba4=y
 CONFIG_PACKAGE_luci-app-openlist2=y
